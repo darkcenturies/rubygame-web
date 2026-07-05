@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RubyGame — Survival Sandbox</title>
+  <meta name="description" content="RubyGame — a small Minecraft survival sandbox server. Java 26.2. play.rubygame.net:22950">
+  <meta property="og:title" content="RubyGame — Survival Sandbox">
+  <meta property="og:description" content="A survival sandbox SMP by darkcenturies.">
+  <meta property="og:url" content="https://rubygame.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--left" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--right" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#">RubyGame</a>
+    <nav class="nav">
+      <a href="#join">Join</a>
+      <a href="#updates">Updates</a>
+      <a href="#features">Features</a>
+      <a href="#discord">Discord</a>
+      <a href="#map">Map</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__card">
+        <h1 class="hero__title">
+          <span class="hero__ruby">R</span><span class="hero__ruby">U</span><span class="hero__ruby">B</span><span class="hero__ruby">Y</span><span class="hero__ruby">G</span><span class="hero__ruby">A</span><span class="hero__ruby">M</span><span class="hero__ruby">E</span>
+          <span class="hero__dot">.</span> Java 26.2
+        </h1>
+        <p class="hero__subtitle">SURVIVAL SANDBOX BY DARKCENTURIES</p>
+      </div>
+    </section>
+
+    <section class="join" id="join">
+      <h2 class="section-title">Play Now</h2>
+      <div class="join__panel">
+        <div class="join__row">
+          <code class="join__ip" id="server-address">play.rubygame.net:22950</code>
+          <button type="button" class="btn btn--primary" id="copy-btn" data-copy="play.rubygame.net:22950">Copy IP</button>
+        </div>
+        <p class="join__hint">Minecraft → Multiplayer → Add Server</p>
+      </div>
+    </section>
+
+    <section class="updates" id="updates">
+      <h2 class="section-title">Updates</h2>
+      <div class="changelog">
+        <details class="changelog__entry" open>
+          <summary>
+            <span class="changelog__ver">0.1l-RC6</span>
+            <time datetime="2026-07-05">Jul 5, 2026</time>
+          </summary>
+          <ul>
+            <li>Bats now drop phantom membranes</li>
+            <li>Throw a Channeling trident upward from the top of the world to start a thunderstorm — costs 150 (60%) durability</li>
+          </ul>
+        </details>
+        <details class="changelog__entry">
+          <summary>
+            <span class="changelog__ver">0.1l-RC5</span>
+            <time datetime="2026-07-05">Jul 5, 2026</time>
+          </summary>
+          <ul>
+            <li>Removed instant leaf decay — was causing issues with server profiling</li>
+            <li>Fixed Spark profiler not working</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2 class="section-title">What You'll Find</h2>
+      <div class="features__grid">
+        <article class="feature-card">
+          <h3>Survival Sandbox</h3>
+          <p>Vanilla survival at its core. A cozy world for a small group to build and explore.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Economy Shop</h3>
+          <p>Buy and sell through <code>/shop</code> and <code>/sell</code>. Powered by EconomyShopGUI and Vault.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Wild RTP</h3>
+          <p>Need a new spot? <code>/rtp</code> sends you somewhere random in the wilderness.</p>
+        </article>
+        <article class="feature-card">
+          <h3>BlueMap</h3>
+          <p>View the overworld, nether, and end in your browser.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Voice Chat</h3>
+          <p>Proximity voice chat — talk to players nearby in-game.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Emotes</h3>
+          <p>Express yourself with player emotes and animations.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Distant Horizons</h3>
+          <p>See much farther into the world with extended render distance support.</p>
+        </article>
+        <article class="feature-card">
+          <h3>World Protection</h3>
+          <p>WorldGuard and WorldEdit keep builds safe and staff tools handy.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Custom Tweaks</h3>
+          <p>Lots of small gameplay tweaks sprinkled throughout — nothing game-breaking, just little quality-of-life changes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="plugins">
+      <h2 class="section-title">Plugins</h2>
+      <p class="plugins__count">28 plugins running</p>
+      <div class="plugins__group">
+        <span class="plugins__label">Paper</span>
+        <div class="plugins__cloud">
+          <span>EconomyShopGUI</span>
+          <span>emotecraft</span>
+          <span>FancyHolograms</span>
+          <span>SmartSpawner</span>
+          <span>vane-admin</span>
+          <span>vane-bedtime</span>
+          <span>vane-core</span>
+          <span>vane-enchantments</span>
+          <span>vane-trifles</span>
+        </div>
+      </div>
+      <div class="plugins__group">
+        <span class="plugins__label">Bukkit</span>
+        <div class="plugins__cloud">
+          <span>Apollo-Bukkit</span>
+          <span>BlueMap</span>
+          <span>DHSupport</span>
+          <span>DynamicLight</span>
+          <span>Essentials</span>
+          <span>EssentialsChat</span>
+          <span>EssentialsDiscord</span>
+          <span>EssentialsDiscordLink</span>
+          <span>EssentialsSpawn</span>
+          <span>LuckPerms</span>
+          <span>NameColor</span>
+          <span>PlaceholderAPI</span>
+          <span>ResourcePackManager</span>
+          <span>TAB</span>
+          <span>Vault</span>
+          <span>voicechat</span>
+          <span>WildRTP</span>
+          <span>WorldEdit</span>
+          <span>WorldGuard</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="commands">
+      <h2 class="section-title">Useful Commands</h2>
+      <div class="commands__row">
+        <div class="command"><code>/tpa &lt;player&gt;</code><span>Request teleport</span></div>
+        <div class="command"><code>/sell</code><span>Sell items</span></div>
+        <div class="command"><code>/shop</code><span>Open the shop</span></div>
+        <div class="command"><code>/rtp</code><span>Random teleport</span></div>
+      </div>
+    </section>
+
+    <section class="discord" id="discord">
+      <h2 class="section-title">Discord</h2>
+      <div class="discord__panel">
+        <div class="discord__info">
+          <svg class="discord__icon" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C1.566 7.758.8 11.13 1.117 14.47a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-3.82-.838-7.22-3.549-10.074a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+          <div>
+            <h3>Join our community</h3>
+            <p>Chat with players, get updates, and link your account in-game.</p>
+          </div>
+        </div>
+        <a href="https://discord.gg/DmSFUSrCQM" class="btn btn--discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
+      </div>
+    </section>
+
+    <section class="map" id="map">
+      <h2 class="section-title">World Map</h2>
+      <div class="map__panel">
+        <p>Browse the server world in your browser with BlueMap.</p>
+        <a href="http://play.rubygame.net:29483" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Open Map</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>RubyGame &copy; <span id="year"></span> — darkcenturies</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
