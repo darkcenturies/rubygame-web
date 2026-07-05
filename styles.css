@@ -223,6 +223,25 @@ section {
   text-align: center;
 }
 
+.join__whitelist {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.join__whitelist a {
+  color: var(--ruby-400);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.join__whitelist a:hover {
+  text-decoration: underline;
+}
+
 /* ── Buttons ── */
 .btn {
   font-family: var(--font-body);
