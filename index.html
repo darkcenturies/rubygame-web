@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <link rel="stylesheet" href="/styles.css?v=5">
   <style>
     body { background: #060606; color: #f0e8e8; margin: 0; font-family: system-ui, sans-serif; }
   </style>
@@ -46,6 +46,11 @@
     <section class="join" id="join">
       <h2 class="section-title">Play Now</h2>
       <div class="join__panel">
+        <div class="status" id="server-status" hidden>
+          <span class="status__dot"></span>
+          <span class="status__text">Checking server status…</span>
+          <span class="status__players" id="status-players"></span>
+        </div>
         <div class="join__row">
           <code class="join__ip" id="server-address">play.rubygame.net:22950</code>
           <button type="button" class="btn btn--primary" id="copy-btn" data-copy="play.rubygame.net:22950">Copy IP</button>
@@ -388,6 +393,6 @@
     <p>RubyGame &copy; <span id="year"></span> — darkcenturies</p>
   </footer>
 
-  <script src="/script.js?v=4"></script>
+  <script src="/script.js?v=5"></script>
 </body>
 </html>

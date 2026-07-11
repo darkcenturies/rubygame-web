@@ -581,3 +581,27 @@ section {
     grid-template-columns: 1fr;
   }
 }
+/* Live server status (populated by script.js via mcstatus.io) */
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.95rem;
+}
+.status__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888;
+  flex-shrink: 0;
+}
+.status--online .status__dot { background: #3adb76; box-shadow: 0 0 8px #3adb76aa; }
+.status--offline .status__dot { background: #e35050; box-shadow: 0 0 8px #e3505088; }
+.status__players { display: flex; gap: 0.35rem; margin-left: 0.4rem; }
+.status__players img {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  image-rendering: pixelated;
+}
