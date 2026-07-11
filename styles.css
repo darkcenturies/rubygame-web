@@ -605,3 +605,14 @@ section {
   border-radius: 4px;
   image-rendering: pixelated;
 }
+
+/* Single fold holding all but the latest update */
+.changelog__older > summary .changelog__ver {
+  color: var(--text-muted);
+}
+.changelog__older-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 0.6rem 0.75rem;
+}
