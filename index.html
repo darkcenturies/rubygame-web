@@ -66,26 +66,35 @@
         <!-- changelog:start -->
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1-R31</span>
+            <span class="changelog__ver">0.1-R32</span>
             <time datetime="2026-07-13">Jul 13, 2026</time>
           </summary>
           <ul>
-            <li>Restored 18 shop prices that had silently reverted: the shop plugin rewrites its own files on restart, and last night's automatic backup pulled the old values back over recent changes (glowstone, quartz, magma block, end stone, the mob heads, totem, dragon breath, ancient debris and several farm-buy prices are correct again)</li>
-            <li>Fixed the underlying cause so it can't recur — shop prices are now managed only from the update pipeline and never overwritten by the nightly backup</li>
+            <li>Closed buy-side backdoors: copper, redstone and raw-metal blocks could be bought and uncrafted into materials the shop deliberately won't sell you (ingots, redstone, raw ore). If a material isn't buyable, none of its blocks are either now — the restriction holds across every form</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>47 versions</time>
+            <time>48 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>37 versions</time>
+                <time>38 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1-R31</span>
+                    <time datetime="2026-07-13">Jul 13, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>Restored 18 shop prices that had silently reverted: the shop plugin rewrites its own files on restart, and last night's automatic backup pulled the old values back over recent changes (glowstone, quartz, magma block, end stone, the mob heads, totem, dragon breath, ancient debris and several farm-buy prices are correct again)</li>
+                    <li>Fixed the underlying cause so it can't recur — shop prices are now managed only from the update pipeline and never overwritten by the nightly backup</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1-R30</span>
