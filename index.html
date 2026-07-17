@@ -66,25 +66,42 @@
         <!-- changelog:start -->
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1-R48</span>
+            <span class="changelog__ver">0.1m</span>
             <time datetime="2026-07-17">Jul 17, 2026</time>
           </summary>
           <ul>
-            <li>Behind the scenes: the deploy checker treats an empty read-back as 'could not verify', never as missing files</li>
+            <li><strong>Milestone: the economy update is complete.</strong> R47 reworked what things sell</li>
+            <li>for; this release finishes the other half — every buy price re-anchored to</li>
+            <li>measured income. 398 listings rise, nothing was lowered, and no sell price</li>
+            <li>changed.</li>
+            <li>Buy prices were calibrated when top income was believed to be ~3,000/hr; measured income is ~7,400/hr, so the whole catalogue had become 2.5–5× cheaper in real playing time than intended.</li>
+            <li>Four mined materials rise to their measured gathering value: coal 4.80 → 15.03, redstone 3.20 → 6.16, lapis 6.60 → 11.45, obsidian 1.03 → 8.02. Crafted items follow their ingredients (torches, lamps, redstone devices), and storage blocks cost exactly 9× their material, so the block form can never undercut a raise.</li>
+            <li>Food is priced on the same scale as everything else: the nutrition coefficient rises from 0.25 to 0.60 (bread 2.75 → 6.60, cooked beef 5.20 → 12.48). The pantry is balanced, not subsidized.</li>
+            <li>Bulk stone can no longer be sold: granite, diorite, andesite, tuff, calcite, deepslate, soul soil and end stone, plus their 34 cut and polished forms. TNT drops 100% of its loot since 1.14, so blast mining produces these in unlimited volume — the same rule that already covers cobblestone. End stone was the real leak: ~15,000 blocks/hr of risk-free end busting at 0.16 paid ~2,400/hr. Masons remain the intended buyer for bulk stone.</li>
+            <li>Versioning note: letters are back. The line ran 0.1a–0.1k in June, the 0.1l-RC series was absorbed into R1 by the old promotion rule, and R1–R48 were letterless revisions. Milestone releases carry letters from here on; -R revisions attach to them.</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>64 versions</time>
+            <time>65 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>54 versions</time>
+                <time>55 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1-R48</span>
+                    <time datetime="2026-07-17">Jul 17, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>Behind the scenes: the deploy checker treats an empty read-back as 'could not verify', never as missing files</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1-R47</span>
