@@ -64,27 +64,46 @@
       <h2 class="section-title">Updates</h2>
       <div class="changelog">
         <!-- changelog:start -->
+        <style>
+          .changelog__lead {
+            font-size: 0.9rem; color: var(--text-dim); line-height: 1.55;
+            margin: 0; padding: 0.9rem 1.25rem 0.15rem;
+            border-top: 1px solid var(--border);
+          }
+          .changelog__lead + .changelog__lead { border-top: none; padding-top: 0.35rem; }
+          .changelog__lead + ul { border-top: none; }
+          .changelog__lead strong { color: var(--text); }
+        </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1m-R1</span>
+            <span class="changelog__ver">0.1m-R2</span>
             <time datetime="2026-07-17">Jul 17, 2026</time>
           </summary>
           <ul>
-            <li>Behind the scenes: changelog entries with an intro paragraph now format cleanly on the site and Discord</li>
+            <li>Behind the scenes: the changelog's intro paragraphs now match the site's design instead of rendering unstyled</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>66 versions</time>
+            <time>67 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>56 versions</time>
+                <time>57 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1m-R1</span>
+                    <time datetime="2026-07-17">Jul 17, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>Behind the scenes: changelog entries with an intro paragraph now format cleanly on the site and Discord</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1m</span>
