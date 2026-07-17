@@ -66,32 +66,41 @@
         <!-- changelog:start -->
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1-R47</span>
+            <span class="changelog__ver">0.1-R48</span>
             <time datetime="2026-07-17">Jul 17, 2026</time>
           </summary>
           <ul>
-            <li><strong>Economy rework: income scales with risk and attention, not automation.</strong></li>
-            <li>AFK-farmable output is no longer sellable to the shop: crops, wood, mob-grinder drops, iron-farm ingots, wool, dyes, and everything craftable from them (913 listings). All of it can still be bought from the shop, sold to villagers, and traded between players.</li>
-            <li>The /sell command is unaffected — it opens the shop's sell screen as always. What was removed is an unused parallel sell pathway from another plugin that carried its own uncalibrated default prices, plus spawner storage payouts.</li>
-            <li>Mining income now follows the risk ladder: ancient debris sells at 495, netherite scrap at 500, netherite ingots at 2,000. Netherite mining out-earns diamond mining, consistent with its exposure: no Fortune scaling, lava, and full-inventory risk.</li>
-            <li>Echo shards sell at 500 (previously 270). An ancient city raid now pays between diamond mining and netherite mining per hour.</li>
-            <li>Diamond is unchanged at 33.</li>
-            <li>Vindicators and evokers drop books instead of emeralds. Raid farms remain effective for totems, XP and gear, but no longer generate currency unattended.</li>
-            <li>Behind the scenes: fixed a deploy check that misreported connection failures as missing files, and a changelog publisher bug that truncated multi-line entries. If a changelog line is unclear, report it.</li>
+            <li>Behind the scenes: the deploy checker treats an empty read-back as 'could not verify', never as missing files</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>63 versions</time>
+            <time>64 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>53 versions</time>
+                <time>54 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1-R47</span>
+                    <time datetime="2026-07-17">Jul 17, 2026</time>
+                  </summary>
+                  <ul>
+                    <li><strong>Economy rework: income scales with risk and attention, not automation.</strong></li>
+                    <li>AFK-farmable output is no longer sellable to the shop: crops, wood, mob-grinder drops, iron-farm ingots, wool, dyes, and everything craftable from them (913 listings). All of it can still be bought from the shop, sold to villagers, and traded between players.</li>
+                    <li>The /sell command is unaffected — it opens the shop's sell screen as always. What was removed is an unused parallel sell pathway from another plugin that carried its own uncalibrated default prices, plus spawner storage payouts.</li>
+                    <li>Mining income now follows the risk ladder: ancient debris sells at 495, netherite scrap at 500, netherite ingots at 2,000. Netherite mining out-earns diamond mining, consistent with its exposure: no Fortune scaling, lava, and full-inventory risk.</li>
+                    <li>Echo shards sell at 500 (previously 270). An ancient city raid now pays between diamond mining and netherite mining per hour.</li>
+                    <li>Diamond is unchanged at 33.</li>
+                    <li>Vindicators and evokers drop books instead of emeralds. Raid farms remain effective for totems, XP and gear, but no longer generate currency unattended.</li>
+                    <li>Behind the scenes: fixed a deploy check that misreported connection failures as missing files, and a changelog publisher bug that truncated multi-line entries. If a changelog line is unclear, report it.</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1-R46</span>
