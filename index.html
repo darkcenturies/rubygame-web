@@ -70,14 +70,14 @@
             <time datetime="2026-07-17">Jul 17, 2026</time>
           </summary>
           <ul>
-            <li><strong>The big economy update: playing the game earns rubies, machines don't.</strong></li>
-            <li>Selling to the shop is now for adventurers: AFK farm products can no longer be sold. Crops, wood, mob-grinder drops, iron-farm ingots, wool, dyes, and everything crafted from them now show "unsellable" in the shop (913 items). You can still <strong>buy</strong> all of it, sell it to <strong>villagers</strong>, and trade it to each other — farms feed your trading hall now, they don't print money.</li>
-            <li>Your <code>/sell</code> command is untouched, to be clear - it opens the shop's sell screen exactly like always. What we actually closed was a hidden leftover from another plugin: an obscure long-form command nobody uses could sell items at that plugin's factory-default prices instead of ours (it would have paid 30 rubies for a single bread). Spawner storage also no longer pays for mob drops on its own separate price list - mob drops are farm products like any other.</li>
-            <li>Mining pays best, in order of danger: <strong>netherite is now the top income</strong> — ancient debris sells for 495, netherite scrap 500, and a netherite ingot 2,000 rubies. It out-earns diamond mining, as it should: you dig blind over lava carrying everything you own.</li>
-            <li><strong>Echo shards now sell for 500</strong> (up from 270), so raiding an ancient city pays more than diamond mining and less than netherite mining.</li>
-            <li>Diamonds are unchanged at 33 — diamond mining was already the best-paying safe activity, and it stays the everyday money-maker.</li>
-            <li>Vindicators and evokers now drop <strong>books</strong> instead of emeralds — they looted the mansion library, not the bank. Raids are still great for totems, XP and gear, but a raid farm can't print currency while you sleep. (Evokers still drop their totem, captains their banners.)</li>
-            <li>Behind the scenes: fixed a deploy check that cried wolf about missing files, and fixed the announcer that was cutting these very sentences in half. If a changelog line ever confuses you, that's a bug - tell us.</li>
+            <li><strong>Economy rework: income scales with risk and attention, not automation.</strong></li>
+            <li>AFK-farmable output is no longer sellable to the shop: crops, wood, mob-grinder drops, iron-farm ingots, wool, dyes, and everything craftable from them (913 listings). All of it can still be bought from the shop, sold to villagers, and traded between players.</li>
+            <li>The /sell command is unaffected — it opens the shop's sell screen as always. What was removed is an unused parallel sell pathway from another plugin that carried its own uncalibrated default prices, plus spawner storage payouts.</li>
+            <li>Mining income now follows the risk ladder: ancient debris sells at 495, netherite scrap at 500, netherite ingots at 2,000. Netherite mining out-earns diamond mining, consistent with its exposure: no Fortune scaling, lava, and full-inventory risk.</li>
+            <li>Echo shards sell at 500 (previously 270). An ancient city raid now pays between diamond mining and netherite mining per hour.</li>
+            <li>Diamond is unchanged at 33.</li>
+            <li>Vindicators and evokers drop books instead of emeralds. Raid farms remain effective for totems, XP and gear, but no longer generate currency unattended.</li>
+            <li>Behind the scenes: fixed a deploy check that misreported connection failures as missing files, and a changelog publisher bug that truncated multi-line entries. If a changelog line is unclear, report it.</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
