@@ -76,32 +76,41 @@
         </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1n</span>
+            <span class="changelog__ver">0.1n-R1</span>
             <time datetime="2026-07-18">Jul 18, 2026</time>
           </summary>
-          <p class="changelog__lead"><strong>Milestone: the shop redesign.</strong></p>
           <ul>
-            <li>New Ruby Exchange section at the top of the shop menu: the currency pair alone — emerald 1.03 / 0.97, emerald block 9.27 / 8.73. One click to convert rubies in either direction.</li>
-            <li>The menu is reorganized and symmetric: Resources &amp; Treasures, Building, and Farming &amp; Food on one row; Combat &amp; Tools, Decoration &amp; Dyes, and Spawners on the next; Storage, Music, and Everything Else below. Resources &amp; Treasures now holds every journey sellable (echo shards, nether star, beacon, heart of the sea, dragon breath) alongside the ores.</li>
-            <li>311 dead listings that could be neither bought nor sold were removed, and the Magic and Misc sections are gone entirely — their few live items were relocated to fitting sections.</li>
-            <li>Every section lists its items cheapest to most expensive.</li>
-            <li>All listings are single-unit: prices are per one item and you choose the amount in the buy screen. Batch displays (per 4, per 9, per 32) are gone.</li>
-            <li>Closed purchase loopholes: filled buckets (a free iron bucket with extra steps), black and green dye, chains, plain firework rockets and trial keys can no longer be bought. The premium cosmetic firework stays purchasable. The recovery compass is removed from the shop entirely.</li>
-            <li>Behind the scenes: deploy verification now runs from a clean connection, which ends the false "deploy failed" alarms — everything those alarms hid (all of the above, plus yesterday's buy reprice) had in fact reached the server each time.</li>
+            <li>Behind the scenes: the deploy watchdog no longer kills rclone during a slow connection handshake</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>68 versions</time>
+            <time>69 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>58 versions</time>
+                <time>59 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1n</span>
+                    <time datetime="2026-07-18">Jul 18, 2026</time>
+                  </summary>
+                  <p class="changelog__lead"><strong>Milestone: the shop redesign.</strong></p>
+                  <ul>
+                    <li>New Ruby Exchange section at the top of the shop menu: the currency pair alone — emerald 1.03 / 0.97, emerald block 9.27 / 8.73. One click to convert rubies in either direction.</li>
+                    <li>The menu is reorganized and symmetric: Resources &amp; Treasures, Building, and Farming &amp; Food on one row; Combat &amp; Tools, Decoration &amp; Dyes, and Spawners on the next; Storage, Music, and Everything Else below. Resources &amp; Treasures now holds every journey sellable (echo shards, nether star, beacon, heart of the sea, dragon breath) alongside the ores.</li>
+                    <li>311 dead listings that could be neither bought nor sold were removed, and the Magic and Misc sections are gone entirely — their few live items were relocated to fitting sections.</li>
+                    <li>Every section lists its items cheapest to most expensive.</li>
+                    <li>All listings are single-unit: prices are per one item and you choose the amount in the buy screen. Batch displays (per 4, per 9, per 32) are gone.</li>
+                    <li>Closed purchase loopholes: filled buckets (a free iron bucket with extra steps), black and green dye, chains, plain firework rockets and trial keys can no longer be bought. The premium cosmetic firework stays purchasable. The recovery compass is removed from the shop entirely.</li>
+                    <li>Behind the scenes: deploy verification now runs from a clean connection, which ends the false "deploy failed" alarms — everything those alarms hid (all of the above, plus yesterday's buy reprice) had in fact reached the server each time.</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1m-R2</span>
