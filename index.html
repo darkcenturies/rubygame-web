@@ -1158,7 +1158,45 @@
       </div>
     </section>
 
-        <section class="economy" id="economy">
+            <section class="flow" id="flow">
+      <div class="container">
+        <h2 class="section-title">Ruby Flow</h2>
+        <!-- flow:start -->
+        <style>
+          .flow__tiles { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.1rem; }
+          .flow__tile { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:0.7rem 1.3rem; text-align:center; min-width:130px; }
+          .flow__label { display:block; font-family:var(--font-pixel); font-size:0.62rem; color:var(--text-dim); letter-spacing:0.06em; margin-bottom:0.25rem; }
+          .flow__num { font-family:var(--font-pixel); font-size:1.25rem; color:var(--ruby-400); font-variant-numeric:tabular-nums; }
+          .flow__sub { display:block; font-size:0.72rem; color:var(--text-muted); margin-top:0.15rem; }
+          .flow__panel--waiting { background:var(--bg-card); border:1px dashed var(--border-bright); border-radius:var(--radius-lg); max-width:640px; margin:0 auto; padding:1.4rem; }
+          .flow__wait { color:var(--text-dim); text-align:center; font-size:0.95rem; }
+          .flow__chartwrap { position:relative; max-width:720px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:0.8rem; }
+          .flow__svg { width:100%; height:auto; display:block; }
+          .flow__grid { stroke:var(--border); stroke-width:1; }
+          .flow__ax { fill:var(--text-muted); font-size:9px; font-family:var(--font-body); font-variant-numeric:tabular-nums; }
+          .flow__line { fill:none; stroke:#ff3d5a; stroke-width:2; stroke-linejoin:round; }
+          .flow__dot, .flow__hoverdot { fill:#ff3d5a; stroke:var(--bg-1); stroke-width:2; }
+          .flow__cur { fill:var(--text); font-size:10px; font-family:var(--font-pixel); }
+          .flow__cross { stroke:var(--border-bright); stroke-width:1; stroke-dasharray:3 3; }
+          .flow__hit { fill:transparent; }
+          .flow__tip { position:absolute; top:0.6rem; background:var(--bg-2); border:1px solid var(--border-bright); border-radius:var(--radius); padding:0.4rem 0.6rem; font-size:0.72rem; color:var(--text-dim); pointer-events:none; min-width:120px; }
+          .flow__tip strong { color:var(--text); } .flow__tip hr { border:0; border-top:1px solid var(--border); margin:0.3rem 0; }
+          .flow__holdings { max-width:720px; margin:0.9rem auto 0; }
+          .flow__row { display:flex; align-items:center; gap:0.7rem; margin:0.3rem 0; }
+          .flow__name { flex:0 0 7.5rem; text-align:right; font-size:0.82rem; color:var(--text-dim); overflow:hidden; text-overflow:ellipsis; }
+          .flow__track { flex:1; background:var(--bg-2); border-radius:3px; height:6px; overflow:hidden; }
+          .flow__bar { display:block; height:100%; background:#e01b3c; border-radius:3px; }
+          .flow__val { flex:0 0 5.5rem; font-size:0.8rem; color:var(--text); font-variant-numeric:tabular-nums; }
+        </style>
+        <div class="flow__panel flow__panel--waiting">
+          <p class="flow__wait">📈 The ledger opens tonight — the nightly sync records the
+          server's total rubies every day at 00:30, and this chart grows one point at a time.</p>
+        </div>
+        <!-- flow:end -->
+      </div>
+    </section>
+
+    <section class="economy" id="economy">
       <div class="container">
         <h2 class="section-title">Economy</h2>
         <!-- economy:start -->
