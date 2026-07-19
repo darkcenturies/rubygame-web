@@ -76,25 +76,34 @@
         </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1n-R24</span>
+            <span class="changelog__ver">0.1n-R25</span>
             <time datetime="2026-07-19">Jul 19, 2026</time>
           </summary>
           <ul>
-            <li>/price now always shows the price for a single item, even when holding a stack</li>
+            <li>The website now has an Economy section showing every buy and sell price on the server</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>92 versions</time>
+            <time>93 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>82 versions</time>
+                <time>83 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1n-R24</span>
+                    <time datetime="2026-07-19">Jul 19, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>/price now always shows the price for a single item, even when holding a stack</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1n-R23</span>
@@ -1027,6 +1036,958 @@
           </div>
         </details>
         <!-- changelog:end -->
+      </div>
+    </section>
+
+        <section class="economy" id="economy">
+      <div class="container">
+        <h2 class="section-title">Economy</h2>
+        <!-- economy:start -->
+        <style>
+          .economy__lead { color: var(--text-dim); max-width: 640px; margin: 0 auto 1.25rem; text-align: center; font-size: 0.95rem; }
+          .economy__fold { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); max-width: 720px; margin: 0 auto; }
+          .economy__fold > summary { cursor: pointer; padding: 0.9rem 1.2rem; font-family: var(--font-pixel); font-size: 0.85rem; color: var(--ruby-400); list-style: none; }
+          .economy__fold > summary::before { content: "\25B8\00a0"; }
+          .economy__fold[open] > summary::before { content: "\25BE\00a0"; }
+          .economy__fold[open] > summary { border-bottom: 1px solid var(--border); }
+          .economy__filter { display: block; width: calc(100% - 2.4rem); margin: 0.9rem 1.2rem 0.4rem; padding: 0.45rem 0.7rem; background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: var(--font-body); }
+          .economy__scroll { max-height: 420px; overflow-y: auto; padding: 0 1.2rem 0.9rem; }
+          .economy__table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+          .economy__table th { position: sticky; top: 0; background: var(--bg-2); font-family: var(--font-pixel); font-size: 0.7rem; color: var(--text-dim); text-align: left; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--border-bright); }
+          .economy__table td { padding: 0.32rem 0.4rem; border-bottom: 1px solid var(--border); }
+          .economy__table td + td { font-variant-numeric: tabular-nums; text-align: right; }
+          .economy__table th + th { text-align: right; }
+          .economy__na { color: var(--text-muted); }
+        </style>
+        <p class="economy__lead">Every price on the server, straight from the live shop files. A dash means the
+        shop doesn't trade that side &mdash; journey items can't be bought, farmable items can't be sold.
+        In-game: <code>/price</code> with an item in hand.</p>
+        <details class="economy__fold">
+          <summary>All buy &amp; sell prices &mdash; 913 items</summary>
+          <input class="economy__filter" type="search" placeholder="Filter items&hellip;"
+                 oninput="for(const r of this.parentElement.querySelectorAll('tbody tr')) r.style.display = r.firstChild.textContent.toLowerCase().includes(this.value.toLowerCase()) ? '' : 'none'">
+          <div class="economy__scroll">
+            <table class="economy__table">
+              <thead><tr><th>Item</th><th>Buy</th><th>Sell</th></tr></thead>
+              <tbody>
+              <tr><td>Acacia Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Acacia Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Allay Spawner</td><td>91,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Allium</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Amethyst Cluster</td><td><span class="economy__na">&mdash;</span></td><td>0.13</td></tr>
+              <tr><td>Ancient Debris</td><td><span class="economy__na">&mdash;</span></td><td>495</td></tr>
+              <tr><td>Andesite</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Andesite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Andesite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Andesite Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Angler Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Apple</td><td>3.84</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Archer Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Armadillo Scute</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Armor Stand</td><td>0.55</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Arms Up Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Axolotl Spawner</td><td>61,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Azalea</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Azalea Leaves</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Azure Bluet</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Baked Potato</td><td>6.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo</td><td>0.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Block</td><td>0.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Button</td><td>0.2275</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Chest Raft</td><td>2.31</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Door</td><td>0.455</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Fence</td><td>0.3525</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Fence Gate</td><td>0.7476</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Mosaic</td><td>0.2275</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Mosaic Slab</td><td>0.1138</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Mosaic Stairs</td><td>0.3413</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Planks</td><td>0.2275</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Pressure Plate</td><td>0.455</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Raft</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Sign</td><td>0.48</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Slab</td><td>0.1138</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Stairs</td><td>0.3413</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bamboo Trapdoor</td><td>0.6825</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Barrel</td><td>1.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Basalt</td><td>0.18</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Beef</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Beetroot</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Beetroot Seeds</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Beetroot Soup</td><td>7.92</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bell</td><td>101.52</td><td>0.9</td></tr>
+              <tr><td>Big Dripleaf</td><td>1.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Birch Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Concrete Powder</td><td>1.01</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Glazed Terracotta</td><td>2.86</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Stained Glass</td><td>0.88</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Stained Glass Pane</td><td>0.33</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Terracotta</td><td>2.86</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Black Wool</td><td>4.65</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blade Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Blaze Powder</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blaze Rod</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blaze Spawner</td><td>50,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Glazed Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Orchid</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Stained Glass Pane</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Blue Wool</td><td>4.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bogged Spawner</td><td>40,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bolt Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Bone</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bone Block</td><td>2.63</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bone Meal</td><td>0.77</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bowl</td><td>0.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brain Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Brain Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Brain Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Bread</td><td>6.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Breeze Rod</td><td><span class="economy__na">&mdash;</span></td><td>0.02</td></tr>
+              <tr><td>Breeze Spawner</td><td>40,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brewer Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Brewing Stand</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brick</td><td>2.38</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brick Slab</td><td>4.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brick Stairs</td><td>9.87</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brick Wall</td><td>9.87</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bricks</td><td>9.52</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Concrete Powder</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Dye</td><td>0.795</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Glazed Terracotta</td><td>2.87</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Mushroom</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Mushroom Block</td><td>0.01</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Stained Glass</td><td>0.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Stained Glass Pane</td><td>0.335</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Terracotta</td><td>2.87</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Brown Wool</td><td>4.75</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Bubble Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Bubble Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Bubble Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Burn Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Cake</td><td>18.7</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Camel Spawner</td><td>20,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Campfire</td><td>2.56</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Carrot</td><td>0.5075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cartography Table</td><td>0.93</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Carved Pumpkin</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cat Spawner</td><td>10,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cave Spider Spawner</td><td>20,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Charcoal</td><td>0.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Button</td><td>0.1925</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Chest Boat</td><td>2.13</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Fence</td><td>0.3067</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Fence Gate</td><td>0.68</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Pressure Plate</td><td>0.385</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Sign</td><td>0.41</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Slab</td><td>0.0963</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Stairs</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Trapdoor</td><td>0.5775</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cherry Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chest</td><td>1.17</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chicken</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chicken Spawner</td><td>35,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Bookshelf</td><td>1.1</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Deepslate</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Nether Bricks</td><td>0.3388</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Quartz Block</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Chiseled Red Sandstone</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Sandstone</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Stone Bricks</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Tuff</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chiseled Tuff Bricks</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Chorus Flower</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Clay</td><td>9.52</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Clay Ball</td><td>1.83</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Coal</td><td>15.0323</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Coal Block</td><td>135.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Coal Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.14</td></tr>
+              <tr><td>Coarse Dirt</td><td>0.73</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Coast Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>80</td></tr>
+              <tr><td>Cobbled Deepslate</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobbled Deepslate Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobbled Deepslate Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobbled Deepslate Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobblestone</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobblestone Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobblestone Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobblestone Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cobweb</td><td>4.06</td><td>1.02</td></tr>
+              <tr><td>Cocoa Beans</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cod</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cod Spawner</td><td>22,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Comparator</td><td><span class="economy__na">&mdash;</span></td><td>0.62</td></tr>
+              <tr><td>Composter</td><td>0.51</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Conduit</td><td><span class="economy__na">&mdash;</span></td><td>1,250</td></tr>
+              <tr><td>Cooked Beef</td><td>12.48</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Chicken</td><td>7.92</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Cod</td><td>6.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Mutton</td><td>9.36</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Porkchop</td><td>12.48</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Rabbit</td><td>6.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cooked Salmon</td><td>9.36</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cornflower</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cow Spawner</td><td>101,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cracked Deepslate Bricks</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cracked Deepslate Tiles</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cracked Nether Bricks</td><td>0.3401</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cracked Stone Bricks</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crafting Table</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Creeper Head</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Creeper Spawner</td><td>61,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Fungus</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Hyphae</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Nylium</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Roots</td><td>0.51</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Stem</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Crimson Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cut Red Sandstone</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cut Red Sandstone Slab</td><td>2.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cut Sandstone</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cut Sandstone Slab</td><td>0.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Concrete Powder</td><td>0.95</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Glazed Terracotta</td><td>2.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Stained Glass</td><td>0.82</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Stained Glass Pane</td><td>0.3075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Terracotta</td><td>2.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Cyan Wool</td><td>4.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dandelion</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Danger Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Dark Oak Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dark Oak Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Daylight Detector</td><td><span class="economy__na">&mdash;</span></td><td>1.21</td></tr>
+              <tr><td>Dead Brain Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Dead Brain Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Dead Brain Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Dead Bubble Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Dead Bubble Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Dead Bubble Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Dead Bush</td><td>3.05</td><td>0.76</td></tr>
+              <tr><td>Dead Fire Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Dead Fire Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Dead Fire Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Dead Horn Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Dead Horn Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Dead Horn Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Dead Tube Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Dead Tube Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Dead Tube Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Decorated Pot</td><td>9.52</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Brick Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Brick Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Brick Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Bricks</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Coal Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.14</td></tr>
+              <tr><td>Deepslate Copper Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.38</td></tr>
+              <tr><td>Deepslate Diamond Ore</td><td><span class="economy__na">&mdash;</span></td><td>5.08</td></tr>
+              <tr><td>Deepslate Emerald Ore</td><td><span class="economy__na">&mdash;</span></td><td>1.9</td></tr>
+              <tr><td>Deepslate Gold Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.76</td></tr>
+              <tr><td>Deepslate Iron Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.51</td></tr>
+              <tr><td>Deepslate Lapis Ore</td><td><span class="economy__na">&mdash;</span></td><td>1.4</td></tr>
+              <tr><td>Deepslate Redstone Ore</td><td><span class="economy__na">&mdash;</span></td><td>0.51</td></tr>
+              <tr><td>Deepslate Tile Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Tile Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Tile Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Deepslate Tiles</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Diamond</td><td><span class="economy__na">&mdash;</span></td><td>33</td></tr>
+              <tr><td>Diamond Axe</td><td><span class="economy__na">&mdash;</span></td><td>4.23</td></tr>
+              <tr><td>Diamond Block</td><td><span class="economy__na">&mdash;</span></td><td>297</td></tr>
+              <tr><td>Diamond Boots</td><td><span class="economy__na">&mdash;</span></td><td>5.6</td></tr>
+              <tr><td>Diamond Chestplate</td><td><span class="economy__na">&mdash;</span></td><td>11.19</td></tr>
+              <tr><td>Diamond Helmet</td><td><span class="economy__na">&mdash;</span></td><td>7</td></tr>
+              <tr><td>Diamond Hoe</td><td><span class="economy__na">&mdash;</span></td><td>2.83</td></tr>
+              <tr><td>Diamond Horse Armor</td><td><span class="economy__na">&mdash;</span></td><td>250</td></tr>
+              <tr><td>Diamond Leggings</td><td><span class="economy__na">&mdash;</span></td><td>9.79</td></tr>
+              <tr><td>Diamond Pickaxe</td><td><span class="economy__na">&mdash;</span></td><td>4.23</td></tr>
+              <tr><td>Diamond Shovel</td><td><span class="economy__na">&mdash;</span></td><td>1.43</td></tr>
+              <tr><td>Diamond Spear</td><td><span class="economy__na">&mdash;</span></td><td>1.43</td></tr>
+              <tr><td>Diamond Sword</td><td><span class="economy__na">&mdash;</span></td><td>2.81</td></tr>
+              <tr><td>Diorite</td><td>0.16</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Diorite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Diorite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Diorite Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dirt</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Disc Fragment</td><td><span class="economy__na">&mdash;</span></td><td>22</td></tr>
+              <tr><td>Dragon Breath</td><td><span class="economy__na">&mdash;</span></td><td>0.75</td></tr>
+              <tr><td>Dragon Head</td><td><span class="economy__na">&mdash;</span></td><td>500</td></tr>
+              <tr><td>Dried Kelp</td><td>0.0507</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dried Kelp Block</td><td>0.455</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dripstone Block</td><td>0.535</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dropper</td><td>7.62</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Dune Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>80</td></tr>
+              <tr><td>Echo Shard</td><td><span class="economy__na">&mdash;</span></td><td>500</td></tr>
+              <tr><td>Egg</td><td>0.5075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Elytra</td><td><span class="economy__na">&mdash;</span></td><td>1,400</td></tr>
+              <tr><td>Emerald</td><td>1.03</td><td>0.97</td></tr>
+              <tr><td>Emerald Block</td><td>9.27</td><td>8.73</td></tr>
+              <tr><td>Enchanted Book</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Enchanting Table</td><td><span class="economy__na">&mdash;</span></td><td>7.08</td></tr>
+              <tr><td>End Stone</td><td>0.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>End Stone Brick Slab</td><td>0.4175</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>End Stone Brick Stairs</td><td>0.84</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>End Stone Brick Wall</td><td>0.84</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>End Stone Bricks</td><td>0.84</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Ender Pearl</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Enderman Spawner</td><td>71,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Explorer Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Eye Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>300</td></tr>
+              <tr><td>Feather</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Fermented Spider Eye</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Fern</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Fire Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Fire Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Fire Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Firework Star</td><td>1.76</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Fletching Table</td><td>1.27</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Flint</td><td>0.26</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Flow Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Flow Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Flow Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Flower Banner Pattern</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Flower Pot</td><td>7.14</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Flowering Azalea</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Flowering Azalea Leaves</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Friend Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Frog Spawner</td><td>160,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Furnace</td><td>1.67</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Ghast Tear</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gilded Blackstone</td><td><span class="economy__na">&mdash;</span></td><td>0.1</td></tr>
+              <tr><td>Glass</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glass Bottle</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glass Pane</td><td>0.2975</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Globe Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>2.9</td></tr>
+              <tr><td>Glow Berries</td><td>0.26</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glow Ink Sac</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glow Lichen</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glow Squid Spawner</td><td>40,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glowstone</td><td>6.24</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Glowstone Dust</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Goat Spawner</td><td>48,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Golden Horse Armor</td><td><span class="economy__na">&mdash;</span></td><td>120</td></tr>
+              <tr><td>Granite</td><td>0.16</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Granite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Granite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Granite Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Grass Block</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gravel</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Concrete Powder</td><td>0.98</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Dye</td><td>0.415</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Glazed Terracotta</td><td>2.83</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Stained Glass</td><td>0.85</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Stained Glass Pane</td><td>0.3175</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Terracotta</td><td>2.83</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gray Wool</td><td>4.37</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Concrete Powder</td><td>0.96</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Glazed Terracotta</td><td>2.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Stained Glass</td><td>0.83</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Stained Glass Pane</td><td>0.31</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Terracotta</td><td>2.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Green Wool</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Grindstone</td><td>0.55</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Gunpowder</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Guster Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Guster Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Hanging Roots</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Hay Block</td><td>5.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Heart Of The Sea</td><td><span class="economy__na">&mdash;</span></td><td>1,250</td></tr>
+              <tr><td>Heart Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Heartbreak Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Heavy Core</td><td><span class="economy__na">&mdash;</span></td><td>500</td></tr>
+              <tr><td>Honey Bottle</td><td>6.41</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Horn Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Horn Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Horn Coral Fan</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Horse Spawner</td><td>34,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Host Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Howl Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Husk Spawner</td><td>50,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Ink Sac</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Iron Golem Spawner</td><td>406,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Iron Horse Armor</td><td><span class="economy__na">&mdash;</span></td><td>80</td></tr>
+              <tr><td>Jack O Lantern</td><td>0.96</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jukebox</td><td><span class="economy__na">&mdash;</span></td><td>1.63</td></tr>
+              <tr><td>Jungle Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Jungle Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Kelp</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Ladder</td><td>0.18</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lapis Block</td><td>103.08</td><td>5.22</td></tr>
+              <tr><td>Lapis Lazuli</td><td>11.4534</td><td>0.58</td></tr>
+              <tr><td>Large Amethyst Bud</td><td>0.41</td><td>0.1</td></tr>
+              <tr><td>Large Fern</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Leather</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lever</td><td>0.2825</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Glazed Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Stained Glass Pane</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Blue Wool</td><td>4.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Glazed Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Stained Glass Pane</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Light Gray Wool</td><td>4.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lilac</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lily Of The Valley</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lily Pad</td><td>2.84</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Concrete Powder</td><td>1.14</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Dye</td><td>0.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Glazed Terracotta</td><td>2.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Stained Glass</td><td>0.82</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Stained Glass Pane</td><td>0.3075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Terracotta</td><td>2.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lime Wool</td><td>4.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Lingering Potion</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mace</td><td><span class="economy__na">&mdash;</span></td><td>533.53</td></tr>
+              <tr><td>Magenta Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Concrete Powder</td><td>1.14</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Glazed Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magenta Wool</td><td>4.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magma Cream</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Magma Cube Spawner</td><td>203,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Chest Boat</td><td>2.13</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Fence</td><td>0.3067</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Fence Gate</td><td>0.68</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Propagule</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Roots</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Sign</td><td>0.41</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Slab</td><td>0.0963</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Stairs</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mangrove Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Medium Amethyst Bud</td><td>0.305</td><td>0.075</td></tr>
+              <tr><td>Melon</td><td>3.6525</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Melon Seeds</td><td>0.4075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Melon Slice</td><td>0.3121</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Miner Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Mojang Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Moss Block</td><td>0.26</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Moss Carpet</td><td>0.2263</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Cobblestone</td><td>0.77</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Cobblestone Slab</td><td>0.38</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Cobblestone Stairs</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Cobblestone Wall</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Stone Brick Slab</td><td>0.2732</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Stone Brick Stairs</td><td>0.82</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Stone Brick Wall</td><td>0.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mossy Stone Bricks</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mourner Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Mud</td><td>0.325</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mud Brick Slab</td><td>0.55</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mud Brick Stairs</td><td>1.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mud Brick Wall</td><td>1.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mud Bricks</td><td>1.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Muddy Mangrove Roots</td><td>0.82</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mushroom Cow Spawner</td><td>101,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mushroom Stem</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Mushroom Stew</td><td>7.92</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Music Disc 5</td><td><span class="economy__na">&mdash;</span></td><td>200</td></tr>
+              <tr><td>Music Disc Creator</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Music Disc Creator Music Box</td><td><span class="economy__na">&mdash;</span></td><td>250</td></tr>
+              <tr><td>Music Disc Otherside</td><td><span class="economy__na">&mdash;</span></td><td>250</td></tr>
+              <tr><td>Music Disc Pigstep</td><td><span class="economy__na">&mdash;</span></td><td>350</td></tr>
+              <tr><td>Music Disc Precipice</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Mutton</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Brick</td><td>0.0913</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Brick Fence</td><td>0.2563</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Brick Slab</td><td>0.1694</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Brick Stairs</td><td>0.3388</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Brick Wall</td><td>0.3388</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Bricks</td><td>0.365</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Sprouts</td><td>0.51</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Nether Wart</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Netherite Axe</td><td><span class="economy__na">&mdash;</span></td><td>67.54</td></tr>
+              <tr><td>Netherite Block</td><td><span class="economy__na">&mdash;</span></td><td>18,000</td></tr>
+              <tr><td>Netherite Boots</td><td><span class="economy__na">&mdash;</span></td><td>68.97</td></tr>
+              <tr><td>Netherite Chestplate</td><td><span class="economy__na">&mdash;</span></td><td>74.85</td></tr>
+              <tr><td>Netherite Helmet</td><td><span class="economy__na">&mdash;</span></td><td>70.44</td></tr>
+              <tr><td>Netherite Hoe</td><td><span class="economy__na">&mdash;</span></td><td>66.07</td></tr>
+              <tr><td>Netherite Horse Armor</td><td><span class="economy__na">&mdash;</span></td><td>2,050</td></tr>
+              <tr><td>Netherite Ingot</td><td><span class="economy__na">&mdash;</span></td><td>2,000</td></tr>
+              <tr><td>Netherite Leggings</td><td><span class="economy__na">&mdash;</span></td><td>73.38</td></tr>
+              <tr><td>Netherite Pickaxe</td><td><span class="economy__na">&mdash;</span></td><td>67.54</td></tr>
+              <tr><td>Netherite Scrap</td><td><span class="economy__na">&mdash;</span></td><td>500</td></tr>
+              <tr><td>Netherite Shovel</td><td><span class="economy__na">&mdash;</span></td><td>64.6</td></tr>
+              <tr><td>Netherite Spear</td><td><span class="economy__na">&mdash;</span></td><td>64.6</td></tr>
+              <tr><td>Netherite Sword</td><td><span class="economy__na">&mdash;</span></td><td>66.05</td></tr>
+              <tr><td>Netherite Upgrade Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>250</td></tr>
+              <tr><td>Netherrack</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Note Block</td><td>7.34</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oak Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Observer</td><td><span class="economy__na">&mdash;</span></td><td>0.52</td></tr>
+              <tr><td>Ominous Trial Key</td><td><span class="economy__na">&mdash;</span></td><td>600</td></tr>
+              <tr><td>Orange Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Glazed Terracotta</td><td>3.13</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Tulip</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Orange Wool</td><td>4.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Oxeye Daisy</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Painting</td><td>4.54</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Fence</td><td>0.3067</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Fence Gate</td><td>0.68</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Slab</td><td>0.0963</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Stairs</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pale Oak Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Panda Spawner</td><td>20,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Paper</td><td>0.1691</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Parrot Spawner</td><td>12,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Peony</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Phantom Membrane</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Piglin Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Piglin Brute Spawner</td><td>812,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Piglin Head</td><td>60.91</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Glazed Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Petals</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Tulip</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pink Wool</td><td>4.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pitcher Plant</td><td>2.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pitcher Pod</td><td>2.08</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Plenty Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Podzol</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pointed Dripstone</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Andesite</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Andesite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Andesite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Basalt</td><td>0.3475</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Deepslate</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Deepslate Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Deepslate Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Deepslate Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Diorite</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Diorite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Diorite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Granite</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Granite Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Granite Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Tuff</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Tuff Slab</td><td>0.1325</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Tuff Stairs</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Polished Tuff Wall</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Poppy</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Porkchop</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Potato</td><td>0.5075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Potion</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Prize Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Pufferfish</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pumpkin</td><td>0.5075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pumpkin Pie</td><td>7.68</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Pumpkin Seeds</td><td>0.165</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Concrete Powder</td><td>1.14</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Glazed Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Purple Wool</td><td>4.06</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Quartz</td><td><span class="economy__na">&mdash;</span></td><td>0.08</td></tr>
+              <tr><td>Quartz Block</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Quartz Bricks</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Quartz Pillar</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Quartz Slab</td><td><span class="economy__na">&mdash;</span></td><td>0.16</td></tr>
+              <tr><td>Quartz Stairs</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Rabbit</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rabbit Foot</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rabbit Hide</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rabbit Spawner</td><td>132,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rabbit Stew</td><td>13.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Raiser Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Raw Copper</td><td><span class="economy__na">&mdash;</span></td><td>0.0225</td></tr>
+              <tr><td>Raw Copper Block</td><td><span class="economy__na">&mdash;</span></td><td>0.21</td></tr>
+              <tr><td>Raw Gold</td><td><span class="economy__na">&mdash;</span></td><td>0.04</td></tr>
+              <tr><td>Raw Gold Block</td><td><span class="economy__na">&mdash;</span></td><td>0.36</td></tr>
+              <tr><td>Raw Iron</td><td><span class="economy__na">&mdash;</span></td><td>0.04</td></tr>
+              <tr><td>Raw Iron Block</td><td><span class="economy__na">&mdash;</span></td><td>0.36</td></tr>
+              <tr><td>Red Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Glazed Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Mushroom</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Mushroom Block</td><td>0.01</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Sand</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Sandstone</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Sandstone Slab</td><td>2.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Sandstone Stairs</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Sandstone Wall</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Tulip</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Red Wool</td><td>4.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Redstone</td><td>6.1612</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Redstone Block</td><td>55.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Redstone Lamp</td><td>30.89</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Redstone Torch</td><td>6.24</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Repeater</td><td>8.69</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rib Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>300</td></tr>
+              <tr><td>Rooted Dirt</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rose Bush</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Rotten Flesh</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Salmon</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sand</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sandstone</td><td>3.18</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sandstone Slab</td><td>0.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sandstone Stairs</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sandstone Wall</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Scrape Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Sculk</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sculk Catalyst</td><td><span class="economy__na">&mdash;</span></td><td>5</td></tr>
+              <tr><td>Sculk Shrieker</td><td>4</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sculk Vein</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Scute</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sea Pickle</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Seagrass</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sentry Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>80</td></tr>
+              <tr><td>Shaper Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Sheaf Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Sheep Spawner</td><td>18,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Shelter Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Shulker Shell</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Shulker Spawner</td><td>203,000</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Silence Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>1,000</td></tr>
+              <tr><td>Skeleton Skull</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Skeleton Spawner</td><td>50,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Skull Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Slime Ball</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Slime Spawner</td><td>223,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Small Amethyst Bud</td><td>0.2026</td><td>0.05</td></tr>
+              <tr><td>Small Dripleaf</td><td>1.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smoker</td><td>3.97</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Basalt</td><td>0.3475</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Quartz</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Smooth Quartz Slab</td><td><span class="economy__na">&mdash;</span></td><td>0.16</td></tr>
+              <tr><td>Smooth Quartz Stairs</td><td><span class="economy__na">&mdash;</span></td><td>0.32</td></tr>
+              <tr><td>Smooth Red Sandstone</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Red Sandstone Slab</td><td>2.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Red Sandstone Stairs</td><td>4.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Sandstone</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Sandstone Slab</td><td>0.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Sandstone Stairs</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Stone</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Smooth Stone Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sniffer Spawner</td><td>18,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Snort Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Snout Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>250</td></tr>
+              <tr><td>Snow</td><td>0.8</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Snowball</td><td>0.3047</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Soul Campfire</td><td>3.71</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Soul Sand</td><td>1.33</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Soul Soil</td><td>1.33</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Soul Torch</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spider Eye</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spider Spawner</td><td>18,200</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spire Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>350</td></tr>
+              <tr><td>Splash Potion</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sponge</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Spore Blossom</td><td>0.355</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Chest Boat</td><td>1.9</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Leaves</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Log</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Sapling</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Spruce Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Squid Spawner</td><td>135,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stick</td><td>0.08</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Axe</td><td>0.7725</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Brick Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Brick Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Brick Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Bricks</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Button</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Hoe</td><td>0.5625</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Pickaxe</td><td>0.7725</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Pressure Plate</td><td>0.4175</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Shovel</td><td>0.355</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Spear</td><td>0.355</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stone Sword</td><td>0.49</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Strider Spawner</td><td>59,400</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>String</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Acacia Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Acacia Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Birch Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Birch Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Crimson Hyphae</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Crimson Stem</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Dark Oak Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Dark Oak Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Jungle Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Jungle Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Oak Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Oak Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Spruce Log</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Spruce Wood</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Warped Hyphae</td><td>0.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Stripped Warped Stem</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sugar</td><td>0.1691</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sugar Cane</td><td>0.13</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sunflower</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Sweet Berries</td><td>0.5075</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tall Grass</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Target</td><td>30.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Terracotta</td><td>2.77</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tide Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
+              <tr><td>Tipped Arrow</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Torch</td><td>0.165</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Torchflower</td><td>2.11</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Torchflower Seeds</td><td>2.08</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Totem Of Undying</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Trial Key</td><td><span class="economy__na">&mdash;</span></td><td>400</td></tr>
+              <tr><td>Tropical Fish</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tube Coral</td><td>0.51</td><td>0.13</td></tr>
+              <tr><td>Tube Coral Block</td><td>1.62</td><td>0.41</td></tr>
+              <tr><td>Tube Coral Fan</td><td>0.61</td><td>0.15</td></tr>
+              <tr><td>Tuff</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Brick Slab</td><td>0.1325</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Brick Stairs</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Brick Wall</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Bricks</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Slab</td><td>0.1325</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Stairs</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Tuff Wall</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Twisting Vines</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Vault</td><td>12,182.7</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Vex Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>400</td></tr>
+              <tr><td>Vine</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Ward Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>400</td></tr>
+              <tr><td>Warped Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Door</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Fence</td><td>0.25</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Fence Gate</td><td>0.6</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Fungus</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Hyphae</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Nylium</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Planks</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Pressure Plate</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Roots</td><td>0.51</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Sign</td><td>0.32</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Slab</td><td>0.0701</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Stairs</td><td>0.22</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Stem</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Trapdoor</td><td>0.44</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Warped Wart Block</td><td>2.74</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wayfinder Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>100</td></tr>
+              <tr><td>Weeping Vines</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wet Sponge</td><td><span class="economy__na">&mdash;</span></td><td>95</td></tr>
+              <tr><td>Wheat</td><td>0.66</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wheat Seeds</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Glazed Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Stained Glass Pane</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Terracotta</td><td>2.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Tulip</td><td>0.1025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>White Wool</td><td>4.09</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wild Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>120</td></tr>
+              <tr><td>Wind Charge</td><td><span class="economy__na">&mdash;</span></td><td>0.02</td></tr>
+              <tr><td>Witch Spawner</td><td>625,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wither Skeleton Skull</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wolf Spawner</td><td>101,600</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Axe</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Hoe</td><td>0.45</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Pickaxe</td><td>0.59</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Shovel</td><td>0.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Spear</td><td>0.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Wooden Sword</td><td>0.3675</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Concrete</td><td>3.04</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Concrete Powder</td><td>0.94</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Dye</td><td>0.2</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Glazed Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Stained Glass</td><td>0.81</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Stained Glass Pane</td><td>0.3025</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Terracotta</td><td>2.78</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Yellow Wool</td><td>4.02</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Zombie Head</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Zombie Spawner</td><td>48,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              <tr><td>Zombified Piglin Spawner</td><td>48,800</td><td><span class="economy__na">&mdash;</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <!-- economy:end -->
       </div>
     </section>
 
