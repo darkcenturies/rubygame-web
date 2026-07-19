@@ -76,25 +76,35 @@
         </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1n-R25</span>
+            <span class="changelog__ver">0.1n-R26</span>
             <time datetime="2026-07-19">Jul 19, 2026</time>
           </summary>
           <ul>
-            <li>The website now has an Economy section showing every buy and sell price on the server</li>
+            <li>218 previously hidden items are now buyable on real shop shelves</li>
+            <li>Closed 222 phantom buy prices on items that had no shelf in the shop</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>93 versions</time>
+            <time>94 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>83 versions</time>
+                <time>84 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1n-R25</span>
+                    <time datetime="2026-07-19">Jul 19, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>The website now has an Economy section showing every buy and sell price on the server</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1n-R24</span>
@@ -1063,7 +1073,7 @@
         shop doesn't trade that side &mdash; journey items can't be bought, farmable items can't be sold.
         In-game: <code>/price</code> with an item in hand.</p>
         <details class="economy__fold">
-          <summary>All buy &amp; sell prices &mdash; 913 items</summary>
+          <summary>All buy &amp; sell prices &mdash; 909 items</summary>
           <input class="economy__filter" type="search" placeholder="Filter items&hellip;"
                  oninput="for(const r of this.parentElement.querySelectorAll('tbody tr')) r.style.display = r.firstChild.textContent.toLowerCase().includes(this.value.toLowerCase()) ? '' : 'none'">
           <div class="economy__scroll">
@@ -1414,7 +1424,6 @@
               <tr><td>Fire Coral</td><td>0.51</td><td>0.13</td></tr>
               <tr><td>Fire Coral Block</td><td>1.62</td><td>0.41</td></tr>
               <tr><td>Fire Coral Fan</td><td>0.305</td><td>0.075</td></tr>
-              <tr><td>Firework Star</td><td>1.76</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Fletching Table</td><td>1.27</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Flint</td><td>0.26</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Flow Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
@@ -1683,7 +1692,6 @@
               <tr><td>Phantom Membrane</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Piglin Banner Pattern</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
               <tr><td>Piglin Brute Spawner</td><td>812,200</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Piglin Head</td><td>60.91</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Pink Banner</td><td>23.79</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Pink Bed</td><td>12.3</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Pink Carpet</td><td>2.64</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1795,7 +1803,6 @@
               <tr><td>Scrape Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
               <tr><td>Sculk</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sculk Catalyst</td><td><span class="economy__na">&mdash;</span></td><td>5</td></tr>
-              <tr><td>Sculk Shrieker</td><td>4</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sculk Vein</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Scute</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sea Pickle</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1921,7 +1928,6 @@
               <tr><td>Tuff Stairs</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Tuff Wall</td><td>0.265</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Twisting Vines</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Vault</td><td>12,182.7</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Vex Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>400</td></tr>
               <tr><td>Vine</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Ward Armor Trim Smithing Template</td><td><span class="economy__na">&mdash;</span></td><td>400</td></tr>
