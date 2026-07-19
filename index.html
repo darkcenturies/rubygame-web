@@ -76,26 +76,35 @@
         </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1n-R26</span>
+            <span class="changelog__ver">0.1n-R27</span>
             <time datetime="2026-07-19">Jul 19, 2026</time>
           </summary>
           <ul>
-            <li>218 previously hidden items are now buyable on real shop shelves</li>
-            <li>Closed 222 phantom buy prices on items that had no shelf in the shop</li>
+            <li>Structure-only blocks can no longer be bought - if a block only comes from a structure, you raid for it</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>94 versions</time>
+            <time>95 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>84 versions</time>
+                <time>85 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1n-R26</span>
+                    <time datetime="2026-07-19">Jul 19, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>218 previously hidden items are now buyable on real shop shelves</li>
+                    <li>Closed 222 phantom buy prices on items that had no shelf in the shop</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1n-R25</span>
@@ -1073,7 +1082,7 @@
         shop doesn't trade that side &mdash; journey items can't be bought, farmable items can't be sold.
         In-game: <code>/price</code> with an item in hand.</p>
         <details class="economy__fold">
-          <summary>All buy &amp; sell prices &mdash; 909 items</summary>
+          <summary>All buy &amp; sell prices &mdash; 904 items</summary>
           <input class="economy__filter" type="search" placeholder="Filter items&hellip;"
                  oninput="for(const r of this.parentElement.querySelectorAll('tbody tr')) r.style.display = r.firstChild.textContent.toLowerCase().includes(this.value.toLowerCase()) ? '' : 'none'">
           <div class="economy__scroll">
@@ -1138,7 +1147,7 @@
               <tr><td>Beetroot</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Beetroot Seeds</td><td>0.305</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Beetroot Soup</td><td>7.92</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Bell</td><td>101.52</td><td>0.9</td></tr>
+              <tr><td>Bell</td><td><span class="economy__na">&mdash;</span></td><td>0.9</td></tr>
               <tr><td>Big Dripleaf</td><td>1.02</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Birch Boat</td><td>1.2</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Birch Button</td><td>0.15</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1270,7 +1279,7 @@
               <tr><td>Cobblestone Slab</td><td>0.1044</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Cobblestone Stairs</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Cobblestone Wall</td><td>0.2088</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Cobweb</td><td>4.06</td><td>1.02</td></tr>
+              <tr><td>Cobweb</td><td><span class="economy__na">&mdash;</span></td><td>1.02</td></tr>
               <tr><td>Cocoa Beans</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Cod</td><td>1.47</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Cod Spawner</td><td>22,600</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1520,7 +1529,6 @@
               <tr><td>Ladder</td><td>0.18</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Lapis Block</td><td>103.08</td><td>5.22</td></tr>
               <tr><td>Lapis Lazuli</td><td>11.4534</td><td>0.58</td></tr>
-              <tr><td>Large Amethyst Bud</td><td>0.41</td><td>0.1</td></tr>
               <tr><td>Large Fern</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Leather</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Lever</td><td>0.2825</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1588,7 +1596,6 @@
               <tr><td>Mangrove Slab</td><td>0.0963</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Mangrove Stairs</td><td>0.29</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Mangrove Wood</td><td>1.03</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Medium Amethyst Bud</td><td>0.305</td><td>0.075</td></tr>
               <tr><td>Melon</td><td>3.6525</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Melon Seeds</td><td>0.4075</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Melon Slice</td><td>0.3121</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1801,9 +1808,7 @@
               <tr><td>Sandstone Stairs</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sandstone Wall</td><td>1.59</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Scrape Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
-              <tr><td>Sculk</td><td>1.22</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sculk Catalyst</td><td><span class="economy__na">&mdash;</span></td><td>5</td></tr>
-              <tr><td>Sculk Vein</td><td>0.2026</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Scute</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Sea Pickle</td><td>0.61</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Seagrass</td><td>0.71</td><td><span class="economy__na">&mdash;</span></td></tr>
@@ -1820,7 +1825,6 @@
               <tr><td>Skull Pottery Sherd</td><td><span class="economy__na">&mdash;</span></td><td>150</td></tr>
               <tr><td>Slime Ball</td><td><span class="economy__na">&mdash;</span></td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Slime Spawner</td><td>223,400</td><td><span class="economy__na">&mdash;</span></td></tr>
-              <tr><td>Small Amethyst Bud</td><td>0.2026</td><td>0.05</td></tr>
               <tr><td>Small Dripleaf</td><td>1.02</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Smoker</td><td>3.97</td><td><span class="economy__na">&mdash;</span></td></tr>
               <tr><td>Smooth Basalt</td><td>0.3475</td><td><span class="economy__na">&mdash;</span></td></tr>
