@@ -93,25 +93,34 @@
         </style>
         <details class="changelog__entry" open>
           <summary>
-            <span class="changelog__ver">0.1n-R63</span>
+            <span class="changelog__ver">0.1n-R64</span>
             <time datetime="2026-07-21">Jul 21, 2026</time>
           </summary>
           <ul>
-            <li>Chart the ruby's value over time instead of raw money supply</li>
+            <li>Put the money-supply chart back (drop the confusing value index)</li>
           </ul>
         </details>
         <details class="changelog__entry changelog__older">
           <summary>
             <span class="changelog__ver">Older updates</span>
-            <time>131 versions</time>
+            <time>132 versions</time>
           </summary>
           <div class="changelog__older-list">
             <details class="changelog__month">
               <summary>
                 <span class="changelog__ver">July 2026</span>
-                <time>121 versions</time>
+                <time>122 versions</time>
               </summary>
               <div class="changelog__month-list">
+                <details class="changelog__entry">
+                  <summary>
+                    <span class="changelog__ver">0.1n-R63</span>
+                    <time datetime="2026-07-21">Jul 21, 2026</time>
+                  </summary>
+                  <ul>
+                    <li>Chart the ruby's value over time instead of raw money supply</li>
+                  </ul>
+                </details>
                 <details class="changelog__entry">
                   <summary>
                     <span class="changelog__ver">0.1n-R62</span>
@@ -1811,7 +1820,6 @@
           .flow__chartwrap { position:relative; max-width:720px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:0.8rem; }
           .flow__svg { width:100%; height:auto; display:block; }
           .flow__grid { stroke:var(--border); stroke-width:1; }
-          .flow__base { stroke:var(--border-bright); stroke-width:1; stroke-dasharray:4 3; }
           .flow__ax { fill:var(--text-muted); font-size:9px; font-family:var(--font-body); font-variant-numeric:tabular-nums; }
           .flow__line { fill:none; stroke:#ff3d5a; stroke-width:2; stroke-linejoin:round; }
           .flow__dot, .flow__hoverdot { fill:#ff3d5a; stroke:var(--bg-1); stroke-width:2; }
@@ -1824,45 +1832,43 @@
         </style>
         <div class="flow__tiles">
 
-          <div class="flow__tile"><span class="flow__label">Ruby value</span>
-          <span class="flow__num">1.000</span><span class="flow__sub">2026-07-20 · launch = 1.000</span></div>
+          <div class="flow__tile"><span class="flow__label">Total supply</span>
+          <span class="flow__num">381 ◆</span><span class="flow__sub">2026-07-20</span></div>
 
           <div class="flow__tile"><span class="flow__label">24 hours</span>
-          <span class="flow__num">▲ +0.0%</span></div>
+          <span class="flow__num">▲ +0</span></div>
 
         </div>
         <div class="flow__chartwrap">
-          <svg viewBox="0 0 640 210" class="flow__svg" role="img" aria-label="What one ruby is worth over time, launch = 1.00">
+          <svg viewBox="0 0 640 210" class="flow__svg" role="img" aria-label="Total rubies in circulation over time">
             <defs><linearGradient id="flowfill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#e01b3c" stop-opacity="0.34"/>
               <stop offset="1" stop-color="#e01b3c" stop-opacity="0.02"/>
             </linearGradient></defs>
             <line x1="46" y1="143.0" x2="626" y2="143.0" class="flow__grid"/>
-            <text x="40" y="146.0" class="flow__ax" text-anchor="end">0.97</text>
+            <text x="40" y="146.0" class="flow__ax" text-anchor="end">371</text>
             <line x1="46" y1="100.0" x2="626" y2="100.0" class="flow__grid"/>
-            <text x="40" y="103.0" class="flow__ax" text-anchor="end">1.00</text>
+            <text x="40" y="103.0" class="flow__ax" text-anchor="end">381</text>
             <line x1="46" y1="57.0" x2="626" y2="57.0" class="flow__grid"/>
-            <text x="40" y="60.0" class="flow__ax" text-anchor="end">1.02</text>
-            <line x1="46" y1="100.0" x2="626" y2="100.0" class="flow__base"/>
-            <text x="626" y="96.0" class="flow__ax" text-anchor="end">launch 1.00</text>
+            <text x="40" y="60.0" class="flow__ax" text-anchor="end">391</text>
             <text x="46.0" y="204" class="flow__ax" text-anchor="middle">07-19</text>
             <text x="626.0" y="204" class="flow__ax" text-anchor="middle">07-20</text>
             <path d="M 46.0,100.0 L 626.0,100.0 L 626.0,186.0 L 46.0,186.0 Z" fill="url(#flowfill)"/>
             <polyline points="46.0,100.0 626.0,100.0" class="flow__line"/>
             <circle cx="626.0" cy="100.0" r="4" class="flow__dot"/>
-            <text x="618.0" y="91.0" class="flow__cur" text-anchor="end">1.00</text>
+            <text x="618.0" y="91.0" class="flow__cur" text-anchor="end">381</text>
             <line class="flow__cross" x1="0" y1="14" x2="0" y2="186" style="display:none"/>
             <circle class="flow__hoverdot" r="4" style="display:none"/>
             <rect x="-244.0" y="0" width="580.0" height="210"
-              class="flow__hit" data-x="46.0" data-y="100.0" data-d="2026-07-19" data-v="1.000"/>
+              class="flow__hit" data-x="46.0" data-y="100.0" data-d="2026-07-19" data-t="381"/>
             <rect x="336.0" y="0" width="580.0" height="210"
-              class="flow__hit" data-x="626.0" data-y="100.0" data-d="2026-07-20" data-v="1.000"/>
+              class="flow__hit" data-x="626.0" data-y="100.0" data-d="2026-07-20" data-t="381"/>
           </svg>
           <div class="flow__tip" style="display:none"></div>
         </div>
-        <p class="flow__note">What one ruby is worth versus launch (1.00). Below 1.00 means more
-        rubies have been minted and each is worth less; above means they have grown scarcer. Drawn
-        from the whole server's money supply, recorded nightly.</p>
+        <p class="flow__note">Total rubies in circulation across the whole server, recorded nightly.
+        It climbs as rubies are minted or earned, and falls as they are spent into sinks — and the more
+        rubies exist, the less each one is worth.</p>
         <script>(function(){
           var wrap=document.querySelector('.flow__chartwrap');if(!wrap)return;
           var svg=wrap.querySelector('.flow__svg'),tip=wrap.querySelector('.flow__tip'),
@@ -1872,7 +1878,7 @@
               cross.setAttribute('x1',h.dataset.x);cross.setAttribute('x2',h.dataset.x);
               hdot.setAttribute('cx',h.dataset.x);hdot.setAttribute('cy',h.dataset.y);
               cross.style.display='';hdot.style.display='';
-              tip.innerHTML='<strong>'+h.dataset.d+'</strong><br>worth '+h.dataset.v+' vs launch';
+              tip.innerHTML='<strong>'+h.dataset.d+'</strong><br>'+h.dataset.t+' rubies';
               tip.style.display='';
               var r=svg.getBoundingClientRect(),x=parseFloat(h.dataset.x)/640*r.width;
               tip.style.left=Math.min(Math.max(x-60,0),r.width-140)+'px';
