@@ -1346,13 +1346,8 @@
           .flow__cross { stroke:var(--border-bright); stroke-width:1; stroke-dasharray:3 3; }
           .flow__hit { fill:transparent; }
           .flow__tip { position:absolute; top:0.6rem; background:var(--bg-2); border:1px solid var(--border-bright); border-radius:var(--radius); padding:0.4rem 0.6rem; font-size:0.72rem; color:var(--text-dim); pointer-events:none; min-width:120px; }
-          .flow__tip strong { color:var(--text); } .flow__tip hr { border:0; border-top:1px solid var(--border); margin:0.3rem 0; }
-          .flow__holdings { max-width:720px; margin:0.9rem auto 0; }
-          .flow__row { display:flex; align-items:center; gap:0.7rem; margin:0.3rem 0; }
-          .flow__name { flex:0 0 7.5rem; text-align:right; font-size:0.82rem; color:var(--text-dim); overflow:hidden; text-overflow:ellipsis; }
-          .flow__track { flex:1; background:var(--bg-2); border-radius:3px; height:6px; overflow:hidden; }
-          .flow__bar { display:block; height:100%; background:#e01b3c; border-radius:3px; }
-          .flow__val { flex:0 0 5.5rem; font-size:0.8rem; color:var(--text); font-variant-numeric:tabular-nums; }
+          .flow__tip strong { color:var(--text); }
+          .flow__note { text-align:center; color:var(--text-muted); font-size:0.8rem; margin:0.7rem auto 0; max-width:720px; }
         </style>
         <div class="flow__tiles">
 
@@ -1364,56 +1359,35 @@
 
         </div>
         <div class="flow__chartwrap">
-          <svg viewBox="0 0 640 190" class="flow__svg" role="img" aria-label="Total rubies in circulation over time">
+          <svg viewBox="0 0 640 210" class="flow__svg" role="img" aria-label="Total rubies in circulation over time">
             <defs><linearGradient id="flowfill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#e01b3c" stop-opacity="0.34"/>
               <stop offset="1" stop-color="#e01b3c" stop-opacity="0.02"/>
             </linearGradient></defs>
-            <line x1="46" y1="127.5" x2="626" y2="127.5" class="flow__grid"/>
-            <text x="40" y="130.5" class="flow__ax" text-anchor="end">371</text>
-            <line x1="46" y1="89.0" x2="626" y2="89.0" class="flow__grid"/>
-            <text x="40" y="92.0" class="flow__ax" text-anchor="end">381</text>
-            <line x1="46" y1="50.5" x2="626" y2="50.5" class="flow__grid"/>
-            <text x="40" y="53.5" class="flow__ax" text-anchor="end">391</text>
-            <text x="46.0" y="184" class="flow__ax" text-anchor="middle">07-19</text>
-            <text x="626.0" y="184" class="flow__ax" text-anchor="middle">07-20</text>
-            <path d="M 46.0,89.0 L 626.0,89.0 L 626.0,166.0 L 46.0,166.0 Z" fill="url(#flowfill)"/>
-            <polyline points="46.0,89.0 626.0,89.0" class="flow__line"/>
-            <circle cx="626.0" cy="89.0" r="4" class="flow__dot"/>
-            <text x="618.0" y="80.0" class="flow__cur" text-anchor="end">381</text>
-            <line class="flow__cross" x1="0" y1="12" x2="0" y2="166" style="display:none"/>
+            <line x1="46" y1="143.0" x2="626" y2="143.0" class="flow__grid"/>
+            <text x="40" y="146.0" class="flow__ax" text-anchor="end">371</text>
+            <line x1="46" y1="100.0" x2="626" y2="100.0" class="flow__grid"/>
+            <text x="40" y="103.0" class="flow__ax" text-anchor="end">381</text>
+            <line x1="46" y1="57.0" x2="626" y2="57.0" class="flow__grid"/>
+            <text x="40" y="60.0" class="flow__ax" text-anchor="end">391</text>
+            <text x="46.0" y="204" class="flow__ax" text-anchor="middle">07-19</text>
+            <text x="626.0" y="204" class="flow__ax" text-anchor="middle">07-20</text>
+            <path d="M 46.0,100.0 L 626.0,100.0 L 626.0,186.0 L 46.0,186.0 Z" fill="url(#flowfill)"/>
+            <polyline points="46.0,100.0 626.0,100.0" class="flow__line"/>
+            <circle cx="626.0" cy="100.0" r="4" class="flow__dot"/>
+            <text x="618.0" y="91.0" class="flow__cur" text-anchor="end">381</text>
+            <line class="flow__cross" x1="0" y1="14" x2="0" y2="186" style="display:none"/>
             <circle class="flow__hoverdot" r="4" style="display:none"/>
-            <rect x="-244.0" y="0" width="580.0" height="190"
-              class="flow__hit" data-x="46.0" data-y="89.0" data-d="2026-07-19" data-t="381" data-p="hwvn: 278&#10;Skurbut: 50&#10;Anto_BG: 37&#10;luditemu6ici: 16&#10;cbfrl77: 0&#10;Simochaze89: 0"/>
-            <rect x="336.0" y="0" width="580.0" height="190"
-              class="flow__hit" data-x="626.0" data-y="89.0" data-d="2026-07-20" data-t="381" data-p="hwvn: 278&#10;Skurbut: 50&#10;Anto_BG: 37&#10;luditemu6ici: 16&#10;cbfrl77: 0&#10;Simochaze89: 0"/>
+            <rect x="-244.0" y="0" width="580.0" height="210"
+              class="flow__hit" data-x="46.0" data-y="100.0" data-d="2026-07-19" data-t="381"/>
+            <rect x="336.0" y="0" width="580.0" height="210"
+              class="flow__hit" data-x="626.0" data-y="100.0" data-d="2026-07-20" data-t="381"/>
           </svg>
           <div class="flow__tip" style="display:none"></div>
         </div>
-        <div class="flow__holdings">
-          <span class="flow__label">Holdings today</span>
-          <div class="flow__row"><span class="flow__name">hwvn</span>
-            <span class="flow__track"><span class="flow__bar" style="width:100.0%"></span></span>
-            <span class="flow__val">278</span></div>
-          <div class="flow__row"><span class="flow__name">Skurbut</span>
-            <span class="flow__track"><span class="flow__bar" style="width:18.0%"></span></span>
-            <span class="flow__val">50</span></div>
-          <div class="flow__row"><span class="flow__name">Anto_BG</span>
-            <span class="flow__track"><span class="flow__bar" style="width:13.2%"></span></span>
-            <span class="flow__val">37</span></div>
-          <div class="flow__row"><span class="flow__name">luditemu6ici</span>
-            <span class="flow__track"><span class="flow__bar" style="width:5.9%"></span></span>
-            <span class="flow__val">16</span></div>
-          <div class="flow__row"><span class="flow__name">cbfrl77</span>
-            <span class="flow__track"><span class="flow__bar" style="width:0.5%"></span></span>
-            <span class="flow__val">0</span></div>
-          <div class="flow__row"><span class="flow__name">Simochaze89</span>
-            <span class="flow__track"><span class="flow__bar" style="width:0.5%"></span></span>
-            <span class="flow__val">0</span></div>
-        </div>
+        <p class="flow__note">Total rubies in circulation across the whole server, recorded nightly.</p>
         <script>(function(){
-          var wrap=document.currentScript.previousElementSibling.previousElementSibling;
-          wrap=document.querySelector('.flow__chartwrap');if(!wrap)return;
+          var wrap=document.querySelector('.flow__chartwrap');if(!wrap)return;
           var svg=wrap.querySelector('.flow__svg'),tip=wrap.querySelector('.flow__tip'),
               cross=svg.querySelector('.flow__cross'),hdot=svg.querySelector('.flow__hoverdot');
           svg.querySelectorAll('.flow__hit').forEach(function(h){
@@ -1421,8 +1395,7 @@
               cross.setAttribute('x1',h.dataset.x);cross.setAttribute('x2',h.dataset.x);
               hdot.setAttribute('cx',h.dataset.x);hdot.setAttribute('cy',h.dataset.y);
               cross.style.display='';hdot.style.display='';
-              tip.innerHTML='<strong>'+h.dataset.d+'</strong><br>'+h.dataset.t+' rubies'+
-                (h.dataset.p?'<hr>'+h.dataset.p.replace(/\n/g,'<br>'):'');
+              tip.innerHTML='<strong>'+h.dataset.d+'</strong><br>'+h.dataset.t+' rubies';
               tip.style.display='';
               var r=svg.getBoundingClientRect(),x=parseFloat(h.dataset.x)/640*r.width;
               tip.style.left=Math.min(Math.max(x-60,0),r.width-140)+'px';
