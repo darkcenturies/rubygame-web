@@ -651,3 +651,38 @@ section {
   gap: 0.5rem;
   padding: 0 0.5rem 0.6rem;
 }
+
+/* --- Ruby Flow / Prices subheadings inside Economy --- */
+.section-sub {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+.economy .section-sub:first-of-type { margin-top: 0.5rem; }
+
+/* --- World map launch panel --- */
+.map__frame {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--bg-2), var(--bg-1));
+}
+.map__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(224,27,60,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224,27,60,0.10) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 45%, #000 30%, transparent 78%);
+}
+.map__cta { position: relative; padding: 3rem 1.5rem; text-align: center; }
+.map__cta h3 { font-family: var(--font-pixel); font-size: 1.05rem; color: var(--ruby-400); margin-bottom: 0.6rem; }
+.map__cta p { color: var(--text-dim); max-width: 30rem; margin: 0 auto 1.25rem; }
+.map__hint { display: block; margin-top: 0.7rem; font-size: 0.75rem; color: var(--text-muted); }
