@@ -40,9 +40,12 @@ copyBtn.addEventListener("click", async () => {
       text.textContent = `Online — ${n}/${m} playing`;
       (s.players?.list || []).slice(0, 12).forEach((p) => {
         const img = document.createElement("img");
+        // Player privacy: heads are shown, names are NOT. No title (hover
+        // tooltip) and a generic alt -- alt leaks the name to screen readers
+        // and whenever the image fails to load. Prefer the UUID in the URL so
+        // the name does not appear in network requests either.
         img.src = `https://mc-heads.net/avatar/${encodeURIComponent(p.uuid || p.name_clean)}/22`;
-        img.alt = p.name_clean;
-        img.title = p.name_clean;
+        img.alt = "Player";
         img.loading = "lazy";
         players.appendChild(img);
       });
