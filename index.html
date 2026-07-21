@@ -1521,8 +1521,13 @@
           .recipes__fold[open] > summary { border-bottom:1px solid var(--border); }
           .recipes__body { padding:0.4rem 1.2rem 1.2rem; }
           .rc__group { font-family:var(--font-pixel); font-size:0.72rem; color:var(--text-dim); letter-spacing:0.06em; margin:1.1rem 0 0.6rem; }
-          .rc__row { display:flex; flex-wrap:wrap; gap:1.1rem; justify-content:center; }
-          .rc { background:var(--bg-1); border:1px solid var(--border); border-radius:var(--radius); padding:0.9rem; margin:0; width:min(100%,420px); flex:1 1 340px; max-width:440px; }
+          /* Grid, not flex: a flex row let a LONE card grow to its 440px cap
+             while paired cards settled near 400px, so a recipe alone on its
+             row rendered a visibly bigger crafting grid (.rc__craft is 100% of
+             the card). Capping the column at 400px makes every card -- and so
+             every grid -- identical whether it is alone or paired. */
+          .rc__row { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),400px)); gap:1.1rem; justify-content:center; align-items:start; }
+          .rc { background:var(--bg-1); border:1px solid var(--border); border-radius:var(--radius); padding:0.9rem; margin:0; width:100%; }
           .rc__title { font-size:0.95rem; color:var(--ruby-400); font-weight:600; margin-bottom:0.5rem; text-align:center; }
           .rc__craft { position:relative; width:100%; aspect-ratio:var(--ar); }
           .rc__bg { width:100%; height:100%; display:block; image-rendering:pixelated; }
