@@ -30,6 +30,10 @@ copyBtn.addEventListener("click", async () => {
   const players = document.getElementById("status-players");
   el.hidden = false;
   try {
+    // KEEP THE PORT HERE. Players type the bare play.rubygame.net (an SRV
+    // record supplies 22950), but this query must stay explicit: if the API
+    // ever fell back to the default 25565 it would report a STRANGER's server
+    // on our shared host, and we would show their player count as ours.
     const res = await fetch("https://api.mcstatus.io/v2/status/java/play.rubygame.net:22950");
     if (!res.ok) throw new Error(res.status);
     const s = await res.json();
