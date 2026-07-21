@@ -61,19 +61,16 @@
     </section>    <section class="map" id="map">
       <h2 class="section-title">World Map</h2>
       <div class="map__panel">
-        <!-- The map is served over plain HTTP on port 29483 while this page is
-             HTTPS, so browsers hard-block an iframe of it as mixed content.
-             Until BlueMap sits behind HTTPS this stays a launch panel; turning
-             it into a real embed is then a one-line change. -->
+        <!-- BlueMap now sits behind HTTPS (Cloudflare proxies map.rubygame.net
+             and rewrites the port to 29483), so it can be framed directly.
+             It sends no X-Frame-Options, and lazy loading keeps the heavy 3D
+             viewer from slowing the rest of the page down. -->
         <div class="map__frame">
-          <div class="map__grid" aria-hidden="true"></div>
-          <div class="map__cta">
-            <h3>Explore the world</h3>
-            <p>Every explored chunk of the overworld, nether and end, rendered in 3D and updated live.</p>
-            <a href="http://map.rubygame.net:29483" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Open the live map &rarr;</a>
-            <span class="map__hint">Opens BlueMap in a new tab</span>
-          </div>
+          <iframe class="map__embed" src="https://map.rubygame.net"
+                  title="Rubygame live world map" loading="lazy" allowfullscreen></iframe>
         </div>
+        <span class="map__hint">Drag to look around, scroll to zoom —
+          <a href="https://map.rubygame.net" target="_blank" rel="noopener noreferrer">open it full screen</a></span>
       </div>
     </section>
 
