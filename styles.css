@@ -683,16 +683,15 @@ section {
   max-height: 640px;
   border: 0;
 }
-.map__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(224,27,60,0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(224,27,60,0.10) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at 50% 45%, #000 30%, transparent 78%);
+/* Footer row under the embedded map: hint and action side by side, stacking
+   centred on narrow screens. (.map__grid / .map__cta were the old launch-panel
+   placeholder and died with it.) */
+.map__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.1rem;
 }
-.map__cta { position: relative; padding: 3rem 1.5rem; text-align: center; }
-.map__cta h3 { font-family: var(--font-pixel); font-size: 1.05rem; color: var(--ruby-400); margin-bottom: 0.6rem; }
-.map__cta p { color: var(--text-dim); max-width: 30rem; margin: 0 auto 1.25rem; }
-.map__hint { display: block; margin-top: 0.7rem; font-size: 0.75rem; color: var(--text-muted); }
+.map__hint { margin: 0; font-size: 0.85rem; color: var(--text-dim); }
